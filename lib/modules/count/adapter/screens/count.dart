@@ -1,5 +1,6 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Count extends StatefulWidget{ //genera un estado a _CountState
   const Count({super.key});
@@ -10,8 +11,10 @@ class Count extends StatefulWidget{ //genera un estado a _CountState
 
 class _CountState extends State<Count> {
   int number =1;
-
+  final random = Random();
+  
   List<Color> colors = [Colors.blue, Colors.yellow, Colors.pink, Colors.purple, Colors.black];
+  
   @override
   Widget build(BuildContext context) {
     TextStyle fontTouch = const TextStyle(fontSize: 32.0, color: Color(0xFF7C42CA));
@@ -31,7 +34,7 @@ class _CountState extends State<Count> {
       //floatingActionButton: const Text("Plus"),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(onPressed:(){
-        for(var i; i<5; i++)
+        var nuevocolor = random.nextInt(colors.length);
         number++;
         print('Hola, $number'); 
         setState((){});}, 
